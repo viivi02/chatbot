@@ -161,6 +161,74 @@ Bot: Então temos uma confissão...
 
 ---
 
+## 🎮 Exemplos de Jogabilidade (Roteiros)
+
+### 🟢 Roteiro 1 — Suspeito Inocente
+
+```
+Usuário: oi
+Bot: inicia o interrogatório.
+
+Usuário: qual é o caso?
+Bot: explica o sumiço do relógio.
+
+Usuário: onde aconteceu o crime?
+Bot: explica que foi no Hotel Neblina.
+
+Usuário: eu estava no bar
+Bot: comenta que o álibi é conveniente.
+
+Usuário: quais evidências existem?
+Bot: fala da luva preta, lama e testemunha.
+
+Usuário: essa luva não é minha
+Bot: questiona a negação da pista.
+
+Usuário: quem são os suspeitos?
+Bot: cita outros suspeitos.
+
+Usuário: eu quero cooperar
+Bot: aceita a cooperação.
+
+Usuário: eu provei minha inocência
+Bot: encerra dizendo que, por enquanto, a história se sustenta.
+```
+
+---
+
+### 🔴 Roteiro 2 — Suspeito Culpado
+
+```
+Usuário: boa noite
+Bot: inicia o interrogatório.
+
+Usuário: do que eu sou acusado?
+Bot: explica o caso do relógio sumido.
+
+Usuário: eu não fiz nada
+Bot: desconfia da negação.
+
+Usuário: eu estava no corredor
+Bot: registra o álibi.
+
+Usuário: você tem alguma pista?
+Bot: apresenta a luva preta e marcas de lama.
+
+Usuário: foi o mordomo
+Bot: reage à acusação contra outra pessoa.
+
+Usuário: na verdade eu estava em outro lugar
+Bot: aponta contradição na história.
+
+Usuário: estou nervoso
+Bot: comenta o nervosismo.
+
+Usuário: tudo bem, eu confesso
+Bot: encerra com a confissão.
+```
+
+---
+
 ## 🔄 Fluxo Conversacional
 
 O chatbot foi estruturado utilizando:
