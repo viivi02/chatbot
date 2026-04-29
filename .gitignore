@@ -1,0 +1,31 @@
+# Ambiente virtual
+rasa_env/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Rasa
+models/
+*.tar.gz
+
+# Logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Node (caso use depois)
+node_modules/
+
+# Arquivos temporários
+*.tmp
+*.bak

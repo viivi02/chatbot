@@ -1,0 +1,54 @@
+version: "3.1"
+
+intents:
+  - saudacao
+  - negar_envolvimento
+  - dizer_alibi
+  - acusar_outra_pessoa
+  - admitir_nervosismo
+  - confessar
+  - pedir_pista
+  - perguntar_caso
+  - despedida
+  - bot_challenge
+
+responses:
+  utter_saudacao:
+    - text: "Finalmente apareceu. Sente-se, Suspeito. Temos um relógio sumido, uma festa cheia de mentiras e você no meio disso tudo."
+
+  utter_explicar_caso:
+    - text: "O caso é simples... pelo menos na superfície. O relógio de ouro do prefeito desapareceu durante uma festa no Hotel Neblina. Todos dizem que não viram nada. Curioso, não acha?"
+
+  utter_perguntar_alibi:
+    - text: "Comecemos pelo básico: onde você estava quando as luzes se apagaram às 22h?"
+
+  utter_responder_alibi:
+    - text: "Um álibi conveniente. Conveniente demais. Vou anotar isso no meu caderno."
+
+  utter_negar_envolvimento:
+    - text: "Todos dizem isso no começo. A inocência costuma entrar pela porta da frente, mas a culpa sempre deixa pegadas."
+
+  utter_acusar_outra_pessoa:
+    - text: "Jogando a culpa em outra pessoa? Interessante. Nomes são como fósforos: iluminam por um segundo e depois queimam os dedos."
+
+  utter_nervosismo:
+    - text: "Nervoso? Bom. Pessoas tranquilas demais me preocupam mais do que as culpadas."
+
+  utter_pista:
+    - text: "Pista registrada: encontramos uma luva preta perto da janela e marcas de lama no corredor do segundo andar."
+
+  utter_confissao:
+    - text: "Então temos uma confissão. A cidade vai dormir melhor hoje... ou pelo menos fingir que dorme."
+
+  utter_despedida:
+    - text: "Pode ir, Suspeito. Mas não saia da cidade. A chuva costuma lavar ruas, não consciências."
+
+  utter_bot_challenge:
+    - text: "Sou o Detetive Rasa, uma sombra com chapéu, café frio e perguntas inconvenientes."
+
+  utter_default:
+    - text: "Essa resposta está nebulosa. E eu não gosto de neblina quando estou seguindo rastros."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

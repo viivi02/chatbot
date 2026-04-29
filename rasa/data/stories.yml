@@ -1,0 +1,65 @@
+version: "3.1"
+
+stories:
+  - story: fluxo principal investigativo
+    steps:
+      - intent: saudacao
+      - action: utter_saudacao
+      - action: utter_perguntar_alibi
+      - intent: dizer_alibi
+      - action: utter_responder_alibi
+      - intent: pedir_pista
+      - action: utter_pista
+      - intent: negar_envolvimento
+      - action: utter_negar_envolvimento
+      - intent: acusar_outra_pessoa
+      - action: utter_acusar_outra_pessoa
+      - intent: confessar
+      - action: utter_confissao
+
+  - story: usuario pergunta sobre o caso
+    steps:
+      - intent: perguntar_caso
+      - action: utter_explicar_caso
+      - action: utter_perguntar_alibi
+
+  - story: usuario nega envolvimento
+    steps:
+      - intent: negar_envolvimento
+      - action: utter_negar_envolvimento
+      - action: utter_perguntar_alibi
+
+  - story: usuario da alibi
+    steps:
+      - intent: dizer_alibi
+      - action: utter_responder_alibi
+      - intent: pedir_pista
+      - action: utter_pista
+
+  - story: usuario acusa outra pessoa
+    steps:
+      - intent: acusar_outra_pessoa
+      - action: utter_acusar_outra_pessoa
+      - intent: pedir_pista
+      - action: utter_pista
+
+  - story: usuario esta nervoso
+    steps:
+      - intent: admitir_nervosismo
+      - action: utter_nervosismo
+      - action: utter_perguntar_alibi
+
+  - story: usuario confessa
+    steps:
+      - intent: confessar
+      - action: utter_confissao
+
+  - story: despedida
+    steps:
+      - intent: despedida
+      - action: utter_despedida
+
+  - story: desafio bot
+    steps:
+      - intent: bot_challenge
+      - action: utter_bot_challenge

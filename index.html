@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interrogatório Noir</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: "Courier New", monospace;
+      background:
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+        radial-gradient(circle at top, #2b2b2b, #050505);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f5f5f5;
+    }
+
+    .chat-container {
+      width: 460px;
+      height: 650px;
+      background: #101010;
+      border: 1px solid #3a3a3a;
+      border-radius: 12px;
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background: #050505;
+      padding: 18px;
+      border-bottom: 1px solid #333;
+      text-align: center;
+    }
+
+    .chat-header h2 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: #e5e5e5;
+    }
+
+    .chat-header p {
+      margin: 6px 0 0;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    #messages {
+      flex: 1;
+      padding: 18px;
+      overflow-y: auto;
+      background:
+        linear-gradient(rgba(20,20,20,0.96), rgba(10,10,10,0.96));
+    }
+
+    .message {
+      max-width: 82%;
+      padding: 11px 14px;
+      margin: 9px 0;
+      border-radius: 8px;
+      line-height: 1.4;
+      font-size: 14px;
+      white-space: pre-wrap;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    .user {
+      margin-left: auto;
+      background: #353535;
+      color: #fff;
+      border-bottom-right-radius: 2px;
+    }
+
+    .bot {
+      margin-right: auto;
+      background: #171717;
+      color: #d7d7d7;
+      border-left: 4px solid #b9a46a;
+      border-bottom-left-radius: 2px;
+    }
+
+    .thinking {
+      font-style: italic;
+      color: #999;
+    }
+
+    #input-area {
+      display: flex;
+      gap: 8px;
+      padding: 14px;
+      background: #050505;
+      border-top: 1px solid #333;
+    }
+
+    input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 20px;
+      border: 1px solid #444;
+      background: #111;
+      color: #fff;
+      outline: none;
+      font-family: "Courier New", monospace;
+    }
+
+    input:focus {
+      border-color: #b9a46a;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 20px;
+      background: #b9a46a;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: "Courier New", monospace;
+    }
+
+    button:hover {
+      background: #d6bf7a;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>🕵️ Interrogatório Noir</h2>
+      <p>Arquivo confidencial: O Caso do Relógio Sumido</p>
+    </div>
+
+    <div id="messages"></div>
+
+    <div id="input-area">
+      <input id="msg" type="text" placeholder="Responda ao detetive..." autocomplete="off" />
+      <button id="btn" onclick="enviar()">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    const RASA = "http://localhost:5005/webhooks/rest/webhook";
+
+    const box = document.getElementById("messages");
+    const inp = document.getElementById("msg");
+    const btn = document.getElementById("btn");
+
+    const typeSound = new Audio("https://actions.google.com/sounds/v1/office/typewriter_key.ogg");
+    typeSound.volume = 0.25;
+
+    function mostrar(texto, quem, extraClass = "") {
+      const div = document.createElement("div");
+      div.className = `message ${quem} ${extraClass}`;
+      div.textContent = texto;
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+      return div;
+    }
+
+    function tocarSomTecla() {
+      try {
+        typeSound.currentTime = 0;
+        typeSound.play();
+      } catch (e) {
+        console.log("Som bloqueado pelo navegador até interação do usuário.");
+      }
+    }
+
+    function escreverComEfeito(elemento, texto, velocidade = 28) {
+      return new Promise(resolve => {
+        elemento.textContent = "";
+        let i = 0;
+
+        const intervalo = setInterval(() => {
+          elemento.textContent += texto.charAt(i);
+          tocarSomTecla();
+          i++;
+          box.scrollTop = box.scrollHeight;
+
+          if (i >= texto.length) {
+            clearInterval(intervalo);
+            resolve();
+          }
+        }, velocidade);
+      });
+    }
+
+    function delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function respostaBotComDelay(texto) {
+      const pensando = mostrar("Detetive está analisando seu depoimento...", "bot", "thinking");
+
+      await delay(900);
+
+      pensando.classList.remove("thinking");
+      await escreverComEfeito(pensando, texto);
+    }
+
+    async function enviar() {
+      const texto = inp.value.trim();
+
+      if (!texto) return;
+
+      mostrar("Suspeito: " + texto, "user");
+      inp.value = "";
+      inp.disabled = true;
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(RASA, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            sender: "suspeito",
+            message: texto
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.length === 0) {
+          await respostaBotComDelay("Interessante... silêncio demais costuma esconder alguma coisa.");
+        } else {
+          for (const r of data) {
+            if (r.text) {
+              await respostaBotComDelay("Detetive: " + r.text);
+            }
+          }
+        }
+
+      } catch {
+        await respostaBotComDelay("Erro no rádio da delegacia. O Rasa parece estar offline ou com problema de CORS.");
+      }
+
+      inp.disabled = false;
+      btn.disabled = false;
+      inp.focus();
+    }
+
+    inp.addEventListener("keydown", e => {
+      if (e.key === "Enter") enviar();
+    });
+
+    respostaBotComDelay(
+      "Sente-se, Suspeito. A noite está fria, o café está amargo e o relógio de ouro do prefeito desapareceu. Vamos conversar."
+    );
+  </script>
+</body>
+</html>

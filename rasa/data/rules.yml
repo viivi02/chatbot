@@ -1,0 +1,29 @@
+version: "3.1"
+
+rules:
+  - rule: responder saudacao
+    steps:
+      - intent: saudacao
+      - action: utter_saudacao
+      - action: utter_perguntar_alibi
+
+  - rule: explicar o caso
+    steps:
+      - intent: perguntar_caso
+      - action: utter_explicar_caso
+      - action: utter_perguntar_alibi
+
+  - rule: responder despedida
+    steps:
+      - intent: despedida
+      - action: utter_despedida
+
+  - rule: responder se é bot
+    steps:
+      - intent: bot_challenge
+      - action: utter_bot_challenge
+
+  - rule: fallback
+    steps:
+      - intent: nlu_fallback
+      - action: utter_default

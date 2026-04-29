@@ -1,0 +1,127 @@
+version: "3.1"
+
+nlu:
+  - intent: saudacao
+    examples: |
+      - oi
+      - olá
+      - bom dia
+      - boa tarde
+      - boa noite
+      - e aí
+      - estou aqui
+      - pode começar
+      - vamos começar
+      - cheguei
+
+  - intent: perguntar_caso
+    examples: |
+      - qual é o caso?
+      - o que aconteceu?
+      - por que estou aqui?
+      - do que eu sou acusado?
+      - me explique o caso
+      - que relógio é esse?
+      - o que foi roubado?
+      - quem foi roubado?
+      - onde aconteceu?
+      - quero saber sobre o crime
+
+  - intent: negar_envolvimento
+    examples: |
+      - eu não fiz nada
+      - sou inocente
+      - eu não roubei
+      - não tenho nada com isso
+      - você está enganado
+      - não fui eu
+      - não sei de nada
+      - eu não estava envolvido
+      - isso é mentira
+      - estão me acusando injustamente
+
+  - intent: dizer_alibi
+    examples: |
+      - eu estava no bar
+      - eu estava em casa
+      - eu estava no banheiro
+      - eu estava conversando com alguém
+      - eu estava no corredor
+      - eu estava no salão principal
+      - eu estava longe dali
+      - eu estava dormindo
+      - eu saí antes disso
+      - eu estava procurando minha carteira
+
+  - intent: acusar_outra_pessoa
+    examples: |
+      - foi o mordomo
+      - acho que foi a cantora
+      - o prefeito está mentindo
+      - a mulher de vermelho parecia suspeita
+      - vi outra pessoa perto da janela
+      - não fui eu, foi outra pessoa
+      - o garçom estava estranho
+      - o motorista tinha lama no sapato
+      - suspeite do mordomo
+      - a culpa é de outra pessoa
+
+  - intent: admitir_nervosismo
+    examples: |
+      - estou nervoso
+      - estou com medo
+      - isso me deixa preocupado
+      - não gosto desse interrogatório
+      - você está me pressionando
+      - estou suando frio
+      - estou desconfortável
+      - não sei o que dizer
+      - estou assustado
+      - isso é intimidador
+
+  - intent: confessar
+    examples: |
+      - tudo bem, eu confesso
+      - fui eu
+      - eu peguei o relógio
+      - eu roubei
+      - eu escondi o relógio
+      - eu não queria fazer isso
+      - eu confesso o crime
+      - está bem, eu fiz
+      - eu sou culpado
+      - eu levei o relógio
+
+  - intent: pedir_pista
+    examples: |
+      - você tem alguma pista?
+      - quais são as pistas?
+      - me mostre uma pista
+      - o que vocês encontraram?
+      - tem alguma evidência?
+      - quais provas existem?
+      - encontraram algo?
+      - existe alguma marca?
+      - tem testemunhas?
+      - o que aponta para mim?
+
+  - intent: despedida
+    examples: |
+      - tchau
+      - adeus
+      - até mais
+      - preciso ir
+      - acabou?
+      - posso sair?
+      - vou embora
+      - fim
+      - encerrar
+      - até logo
+
+  - intent: bot_challenge
+    examples: |
+      - você é um bot?
+      - você é humano?
+      - quem é você?
+      - você é real?
+      - estou falando com uma pessoa?
