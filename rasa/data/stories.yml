@@ -63,3 +63,76 @@ stories:
     steps:
       - intent: bot_challenge
       - action: utter_bot_challenge
+
+  - story: usuario pergunta suspeitos
+    steps:
+      - intent: perguntar_suspeitos
+      - action: utter_suspeitos
+      - action: utter_pressao
+
+  - story: usuario pergunta local do crime
+    steps:
+      - intent: perguntar_local
+      - action: utter_local
+      - action: utter_perguntar_alibi
+
+  - story: usuario pergunta evidencias
+    steps:
+      - intent: perguntar_evidencias
+      - action: utter_evidencias
+      - action: utter_pressao
+
+  - story: usuario coopera
+    steps:
+      - intent: cooperar
+      - action: utter_cooperar
+      - action: utter_perguntar_alibi
+
+  - story: usuario tenta fugir
+    steps:
+      - intent: tentar_fugir
+      - action: utter_tentar_fugir
+      - action: utter_pressao
+
+  - story: usuario muda versao
+    steps:
+      - intent: contradizer
+      - action: utter_contradicao
+      - action: utter_perguntar_alibi
+
+  - story: usuario nega evidencia
+    steps:
+      - intent: negar_pista
+      - action: utter_negar_pista
+      - action: utter_pressao
+
+  - story: usuario pede repeticao
+    steps:
+      - intent: pedir_repeticao
+      - action: utter_repeticao
+
+  - story: final inocente
+    steps:
+      - intent: final_inocente
+      - action: utter_final_inocente
+      - action: utter_despedida
+
+  - story: fluxo investigativo maior
+    steps:
+      - intent: saudacao
+      - action: utter_saudacao
+      - action: utter_perguntar_alibi
+      - intent: dizer_alibi
+      - action: utter_responder_alibi
+      - intent: perguntar_evidencias
+      - action: utter_evidencias
+      - intent: negar_pista
+      - action: utter_negar_pista
+      - intent: perguntar_suspeitos
+      - action: utter_suspeitos
+      - intent: acusar_outra_pessoa
+      - action: utter_acusar_outra_pessoa
+      - intent: contradizer
+      - action: utter_contradicao
+      - intent: confessar
+      - action: utter_confissao

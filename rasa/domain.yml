@@ -9,6 +9,15 @@ intents:
   - confessar
   - pedir_pista
   - perguntar_caso
+  - perguntar_suspeitos
+  - perguntar_local
+  - perguntar_evidencias
+  - cooperar
+  - tentar_fugir
+  - contradizer
+  - negar_pista
+  - pedir_repeticao
+  - final_inocente
   - despedida
   - bot_challenge
 
@@ -48,6 +57,45 @@ responses:
 
   utter_default:
     - text: "Essa resposta está nebulosa. E eu não gosto de neblina quando estou seguindo rastros."
+
+  utter_suspeitos:
+    - text: "Temos três nomes no quadro: o mordomo, a cantora do salão e você. Curioso como seu nome sempre aparece perto das pistas."
+    - text: "Suspeitos? Todos naquela festa tinham motivo. Mas só alguns tinham oportunidade."
+
+  utter_local:
+    - text: "O relógio desapareceu no salão principal do Hotel Neblina, exatamente quando as luzes se apagaram às 22h."
+    - text: "O local do crime cheirava a cigarro barato, perfume caro e mentira fresca."
+
+  utter_evidencias:
+    - text: "Temos uma luva preta, marcas de lama, uma taça quebrada e uma testemunha que ouviu passos perto da janela."
+    - text: "As evidências ainda não gritam seu nome, Suspeito... mas estão começando a sussurrar."
+
+  utter_cooperar:
+    - text: "Boa escolha. Cooperar pode ser a diferença entre sair pela porta da frente ou não sair."
+    - text: "Finalmente, uma atitude inteligente. Vamos continuar antes que eu mude de ideia."
+
+  utter_tentar_fugir:
+    - text: "Sentado. Ninguém sai desta sala enquanto o caso estiver mais escuro que meu café."
+    - text: "Fugir? Péssima ideia. A porta está aberta, mas minha paciência não."
+
+  utter_contradicao:
+    - text: "Interessante... há cinco minutos você disse outra coisa. Histórias mudam quando a culpa começa a pesar."
+    - text: "Essa versão tem rachaduras. E eu costumo encontrar a verdade justamente pelas rachaduras."
+
+  utter_negar_pista:
+    - text: "Negar a pista não faz ela desaparecer. Só faz você parecer mais preocupado com ela."
+    - text: "A luva, a lama, a janela... tudo isso incomoda você mais do que deveria."
+
+  utter_repeticao:
+    - text: "Vou repetir devagar: onde você estava quando as luzes se apagaram às 22h?"
+    - text: "A pergunta é simples, Suspeito: qual é o seu álibi?"
+
+  utter_final_inocente:
+    - text: "Por enquanto, sua história se sustenta. Não significa que confio em você. Significa apenas que ainda não posso provar o contrário."
+
+  utter_pressao:
+    - text: "Pense bem antes de responder. Nesta sala, até o silêncio presta depoimento."
+    - text: "Você pode continuar mentindo, mas aviso: eu tenho a noite inteira."
 
 session_config:
   session_expiration_time: 60

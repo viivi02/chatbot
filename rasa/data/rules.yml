@@ -27,3 +27,8 @@ rules:
     steps:
       - intent: nlu_fallback
       - action: utter_default
+
+  - rule: responder pedido de repeticao
+    steps:
+      - intent: pedir_repeticao
+      - action: utter_repeticao

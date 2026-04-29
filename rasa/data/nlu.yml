@@ -125,3 +125,102 @@ nlu:
       - quem é você?
       - você é real?
       - estou falando com uma pessoa?
+
+  - intent: perguntar_suspeitos
+    examples: |
+      - quem são os suspeitos?
+      - existem outros suspeitos?
+      - só eu sou suspeito?
+      - quem mais estava lá?
+      - quem poderia ter roubado?
+      - tem mais alguém envolvido?
+      - quem você acha que fez isso?
+      - quais pessoas estavam na festa?
+
+  - intent: perguntar_local
+    examples: |
+      - onde aconteceu o crime?
+      - onde o relógio sumiu?
+      - qual foi o local do roubo?
+      - isso aconteceu onde?
+      - em que lugar foi?
+      - onde era a festa?
+      - onde as luzes apagaram?
+      - onde estava o prefeito?
+
+  - intent: perguntar_evidencias
+    examples: |
+      - quais evidências existem?
+      - que provas vocês têm?
+      - existe alguma prova contra mim?
+      - o que prova que fui eu?
+      - quais objetos foram encontrados?
+      - vocês têm testemunhas?
+      - tem alguma gravação?
+      - o que encontraram no local?
+
+  - intent: cooperar
+    examples: |
+      - eu quero cooperar
+      - vou ajudar
+      - posso explicar
+      - quero contar a verdade
+      - vou responder
+      - tudo bem, vou colaborar
+      - estou disposto a ajudar
+      - pode perguntar
+
+  - intent: tentar_fugir
+    examples: |
+      - eu quero ir embora
+      - vou sair daqui
+      - não vou responder mais
+      - quero chamar meu advogado
+      - não tenho mais nada a dizer
+      - posso sair agora?
+      - isso acabou
+      - estou indo embora
+
+  - intent: contradizer
+    examples: |
+      - na verdade eu estava em outro lugar
+      - eu menti antes
+      - não foi bem assim
+      - esqueci de falar uma coisa
+      - mudei minha versão
+      - talvez eu estivesse no corredor
+      - acho que falei errado
+      - minha história não foi essa
+
+  - intent: negar_pista
+    examples: |
+      - essa luva não é minha
+      - essa pista não prova nada
+      - isso não significa que fui eu
+      - essas marcas não são minhas
+      - vocês estão errados
+      - essa evidência é falsa
+      - alguém plantou essa prova
+      - isso não tem relação comigo
+
+  - intent: pedir_repeticao
+    examples: |
+      - pode repetir?
+      - não entendi
+      - repete a pergunta
+      - fale de novo
+      - o que você perguntou?
+      - como assim?
+      - explique melhor
+      - não ficou claro
+
+  - intent: final_inocente
+    examples: |
+      - eu provei minha inocência
+      - então posso ir?
+      - viu, eu sou inocente
+      - minha história faz sentido
+      - não há provas contra mim
+      - você não pode me prender
+      - eu não fiz nada mesmo
+      - posso ser liberado?

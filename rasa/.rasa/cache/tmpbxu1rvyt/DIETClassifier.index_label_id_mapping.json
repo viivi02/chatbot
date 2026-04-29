@@ -1,0 +1,21 @@
+{
+  "0": "acusar_outra_pessoa",
+  "1": "admitir_nervosismo",
+  "2": "bot_challenge",
+  "3": "confessar",
+  "4": "contradizer",
+  "5": "cooperar",
+  "6": "despedida",
+  "7": "dizer_alibi",
+  "8": "final_inocente",
+  "9": "negar_envolvimento",
+  "10": "negar_pista",
+  "11": "pedir_pista",
+  "12": "pedir_repeticao",
+  "13": "perguntar_caso",
+  "14": "perguntar_evidencias",
+  "15": "perguntar_local",
+  "16": "perguntar_suspeitos",
+  "17": "saudacao",
+  "18": "tentar_fugir"
+}
